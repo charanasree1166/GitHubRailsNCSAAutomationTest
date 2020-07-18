@@ -10,6 +10,7 @@ Feature: GET Rails Repo Home Page
     When User searches for a repository name
     Then User should be able to see the repository in the result set
 
+    
   @RailsRepo
   Scenario Outline:
     Given service "/search/repositories?q=topic:ruby+topic:rails" endpoint for github api for rails comprehensive "<scenarioname>" and type "GET"
@@ -18,11 +19,9 @@ Feature: GET Rails Repo Home Page
 
     Examples:
       | scenarioname         | githubrepourl                                                       | statuscode
-      | SearchRepoTopicRails | https://api.github.com/search/repositories?q=topic:ruby+topic:rails | 200
+      | SearchRepoTopicRails | https://api.github.com/search/repositories?q=topic:ruby+topic:rails |        200
 
-  # Scenario - GitHub Repository REST API returns all top languages for page 1
-  # API return a response with Http Status code 200 Ok
-  # Validate if Top languages from RESTAPI response matches with on screen (UI) top languages list
+
   @TopLanguages
   Scenario Outline: call api.github.com by search/repositories endpoint to fetch repos in the rails topic
     Given service "/languages" endpoint for github api for language comprehensive "<scenario name>" and type "GET"
@@ -31,4 +30,5 @@ Feature: GET Rails Repo Home Page
 
     Examples:
       | scenarioname    | githubrepourl                                      | statuscode
-      | GetTopLanguages | https://api.github.com/repos/rails/rails/languages | 200
+      | GetTopLanguages | https://api.github.com/repos/rails/rails/languages |        200
+
